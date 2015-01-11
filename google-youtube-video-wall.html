@@ -38,7 +38,7 @@ and the [YouTube Data API v3](https://developers.google.com/youtube/v3/) searche
 -->
 
 <polymer-element name="google-youtube-video-wall"
-                 attributes="apiKey channelId eventType goingBackDays location locationRadius maxResultsPerRequest maxVideos narrowWidth order playlistId publishedAfter publishedBefore q safeSearch showSearch topicId veryNarrowWidth videoCategoryId wallTitle">
+                 attributes="apiKey channelId eventType goingBackDays location locationRadius maxResultsPerRequest maxVideos narrowWidth order playlistId publishedAfter publishedBefore q safeSearch showSearch hideToolbar topicId veryNarrowWidth videoCategoryId wallTitle">
   <template>
     <link rel="stylesheet" href="google-youtube-video-wall.css">
 
@@ -55,7 +55,7 @@ and the [YouTube Data API v3](https://developers.google.com/youtube/v3/) searche
                            fit
                            cross-fade
                            on-scroll="{{handleResultsScroll}}">
-          <core-toolbar class="{{ {'medium-tall': narrow && showSearch} | tokenList }}">
+          <core-toolbar class="{{ {'medium-tall': narrow && showSearch} | tokenList }}" hidden?="hideToolbar">
             <header flex>
               <content></content>
               {{wallTitle}}
@@ -406,6 +406,16 @@ and the [YouTube Data API v3](https://developers.google.com/youtube/v3/) searche
          * @default false
          */
         showSearch: false,
+
+        /**
+         * Whether or not to show the toolbar.
+         *
+         * @attribute hideTootbarh
+         * @type boolean
+         * @default false
+         */
+        hideToolbar: false,
+
 
         /**
          * An optional search filter which limits the results to videos that match the specified topic id.
