@@ -55,7 +55,7 @@ and the [YouTube Data API v3](https://developers.google.com/youtube/v3/) searche
                            fit
                            cross-fade
                            on-scroll="{{handleResultsScroll}}">
-          <core-toolbar class="{{ {'medium-tall': narrow && showSearch} | tokenList }}" hidden?="hideToolbar">
+          <core-toolbar class="{{ {'medium-tall': narrow && showSearch} | tokenList }}" hidden?="{{hideToolbar}}">
             <header flex>
               <content></content>
               {{wallTitle}}
